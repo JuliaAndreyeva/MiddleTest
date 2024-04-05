@@ -1,11 +1,22 @@
+def read_file(input_file: str) -> list[str]:
+    """
+    Read the content of an input file.
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    Args:
+        input_file (str): The path to the input file.
+
+    Returns:
+        list[str]: A list that contains each line of the file as a string.
+    """
+    with open(input_file, 'r') as f:
+        lines = f.readlines()
+        return lines
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    try:
+        file_data = read_file('data.txt')
+    except:
+        print('An error occurred')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
