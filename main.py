@@ -31,9 +31,26 @@ def find_lines_with_keyword(lines: list[str], keyword: str) -> list[str]:
     return res
 
 
+def write_file(output_file: str, lines: list[str]) -> None:
+    """
+    Write a list of strings to a file.
+
+    Args:
+        output_file (str): The path to the output file.
+        lines (list[str]): A list of strings representing lines of text to be written to the file.
+
+    Returns:
+        None
+    """
+    with open(output_file, 'w') as f:
+        for line in lines:
+            f.write(line)
+
+
 if __name__ == '__main__':
     try:
         file_data = read_file('data.txt')
         result = find_lines_with_keyword(file_data, 'Lorem')
+        write_file('filtered.txt', result)
     except:
         print('An error occurred')
